@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{18927325-A020-46B3-9EA0-17AADC71F42C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BCP.Optimizacion.Application.Implementation</RootNamespace>
+    <AssemblyName>BCP.Optimizacion.Application.Implementation</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="implementation\ServiceBaseAplication.cs" />
+    <Compile Include="implementation\ServiceSale.cs" />
+    <Compile Include="implementation\ServiceUser.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BCP.Optimizacion.Application.Contract\BCP.Optimizacion.Application.Contract.csproj">
+      <Project>{67484179-1460-4243-8396-8594b4802cc6}</Project>
+      <Name>BCP.Optimizacion.Application.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BCP.Optimizacion.Application.Entity\BCP.Optimizacion.Application.Entity.csproj">
+      <Project>{ef39496a-f436-4c96-a9ec-64089875df10}</Project>
+      <Name>BCP.Optimizacion.Application.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BCP.Optimizacion.Domain.Contract\BCP.Optimizacion.Domain.Contract.csproj">
+      <Project>{3d7c8423-64d0-4c9b-9474-c2becae4498b}</Project>
+      <Name>BCP.Optimizacion.Domain.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BCP.Optimizacion.Domain.Entity\BCP.Optimizacion.Domain.Entity.csproj">
+      <Project>{d1b41285-8a4e-4789-98fc-6ad77f8b8584}</Project>
+      <Name>BCP.Optimizacion.Domain.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BCP.Optimizacion.Infraestructure.WebClient\BCP.Optimizacion.Infraestructure.WebClient.csproj">
+      <Project>{5df1e8c4-efb4-49f9-bc54-191fe4f556dd}</Project>
+      <Name>BCP.Optimizacion.Infraestructure.WebClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BCP.Optimizacion.Infraestructure\BCP.Optimizacion.Infraestructure.csproj">
+      <Project>{7c67c9c8-d9e3-44c5-802a-acf0c3177849}</Project>
+      <Name>BCP.Optimizacion.Infraestructure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
