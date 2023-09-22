@@ -10,6 +10,6 @@ namespace BCP.Optimizacion.Domain.Contract
 {
     public interface ISale
     {
-        Task<HttpResponseMessage> crearVenta(SaleRequest saleRequest);
+        SaleResponse crearVenta(SaleRequest saleRequest);
     }
 }

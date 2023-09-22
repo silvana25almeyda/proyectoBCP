@@ -46,11 +46,11 @@ namespace BCP.Optimizacion.Presentation.Rest
             builder.RegisterType<User>()
                 .As<IUser>()
                 .SingleInstance();
-            /*
+            
             builder.RegisterType<Sale>()
-                .As<ISale()
-                .SingleInstance();*/
-
+                .As<ISale>()
+                .SingleInstance();
+            
             #endregion
 
             #region Capa Aplicación

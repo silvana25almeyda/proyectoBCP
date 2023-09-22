@@ -51,12 +51,9 @@ namespace BCP.Optimizacion.Presentation.Rest.Controllers
 
         // GET: Sale/Create
         [HttpPost]
-        public async Task<HttpResponseMessage> Create([FromBody] SaleRequest saleRequest)
+        public SaleResponse Create([FromBody] SaleRequest saleRequest)
         {
-            var objVenta = await _servicioSale.crearVenta(saleRequest);
-            var objEntidadDataStatus = _serviceBaseAplication.EvaluarTipoRetornoStatus<SaleRequestDto,
-                                        SaleResponse>(objVenta);
-            var responseResultado = _serviceBaseAplication.ObtenerResponseRequest(objEntidadDataStatus);
+            SaleResponse responseResultado =  _servicioSale.crearVenta(saleRequest);
 
             return responseResultado;
         }
