@@ -34,12 +34,10 @@ namespace BCP.Optimizacion.Presentation.Rest.Controllers
         [HttpGet]
         public async Task<HttpResponseMessage> Index()
         {
-            var objListaUsuarios = await _servicioUser.ObtenerUsuarios();
-            var objEntidadDataStatus = _serviceBaseAplication.EvaluarTipoRetornoStatus<ResponseUsersDto,
-                                        ResponseUsers>(objListaUsuarios);
-            var responseResultado = _serviceBaseAplication.ObtenerResponseRequest(objEntidadDataStatus);
+            var objResponseRequest = new HttpResponseMessage();
 
-            return responseResultado;
+            objResponseRequest.StatusCode = HttpStatusCode.OK;
+            return objResponseRequest;
         }
 
 
@@ -47,12 +45,10 @@ namespace BCP.Optimizacion.Presentation.Rest.Controllers
         [HttpPost]
         public async Task<HttpResponseMessage> Create()
         {
-            var objListaUsuarios = await _servicioUser.ObtenerUsuarios();
-            var objEntidadDataStatus = _serviceBaseAplication.EvaluarTipoRetornoStatus<ResponseUsersDto,
-                                        ResponseUsers>(objListaUsuarios);
-            var responseResultado = _serviceBaseAplication.ObtenerResponseRequest(objEntidadDataStatus);
+            var objResponseRequest = new HttpResponseMessage();
 
-            return responseResultado;
+            objResponseRequest.StatusCode = HttpStatusCode.OK;
+            return objResponseRequest;
         }
 
 
@@ -61,12 +57,10 @@ namespace BCP.Optimizacion.Presentation.Rest.Controllers
         [HttpPut]
         public async Task<HttpResponseMessage> Edit(int IdSale)
         {
-            var objListaUsuarios = await _servicioUser.ObtenerUsuarios();
-            var objEntidadDataStatus = _serviceBaseAplication.EvaluarTipoRetornoStatus<ResponseUsersDto,
-                                        ResponseUsers>(objListaUsuarios);
-            var responseResultado = _serviceBaseAplication.ObtenerResponseRequest(objEntidadDataStatus);
+            var objResponseRequest = new HttpResponseMessage();
 
-            return responseResultado;
+            objResponseRequest.StatusCode = HttpStatusCode.OK;
+            return objResponseRequest;
         }
 
 
@@ -74,12 +68,10 @@ namespace BCP.Optimizacion.Presentation.Rest.Controllers
         [HttpDelete]
         public async Task<HttpResponseMessage> Delete(int IdSale)
         {
-            var objListaUsuarios = await _servicioUser.ObtenerUsuarios();
-            var objEntidadDataStatus = _serviceBaseAplication.EvaluarTipoRetornoStatus<ResponseUsersDto,
-                                        ResponseUsers>(objListaUsuarios);
-            var responseResultado = _serviceBaseAplication.ObtenerResponseRequest(objEntidadDataStatus);
+            var objResponseRequest = new HttpResponseMessage();
 
-            return responseResultado;
+            objResponseRequest.StatusCode = HttpStatusCode.OK;
+            return objResponseRequest;
         }
     }
 }

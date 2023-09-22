@@ -8,7 +8,6 @@ namespace BCP.Optimizacion.Application.Entity
 {
     public class ResponseUsersDto
     {
-        public MetadataDto metadata { get; set; }
         public List<UserDto> usuarios { get; set; }
     }
 }

@@ -12,10 +12,10 @@ namespace BCP.Optimizacion.Application.Entity
         public string name { get; set; }
         public string username { get; set; }
         public string email { get; set; }
-        public ICollection<addressUser> address { get; set; }
+        public IEnumerable<addressUser> address { get; set; }
         public string phone { get; set; }
         public string website { get; set; }
-        public ICollection<companyUser> company { get; set; }
+        public IEnumerable<companyUser> company { get; set; }
 
         public class addressUser
         {
@@ -23,7 +23,7 @@ namespace BCP.Optimizacion.Application.Entity
             public string suite { get; set; }
             public string city { get; set; }
             public string zipcode { get; set; }
-            public ICollection<geoUser> geo { get; set; }
+            public IEnumerable<geoUser> geo { get; set; }
 
         }
         public class geoUser

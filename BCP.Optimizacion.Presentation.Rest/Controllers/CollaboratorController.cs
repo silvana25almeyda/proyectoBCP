@@ -3,6 +3,7 @@ using BCP.Optimizacion.Application.Entity;
 using BCP.Optimizacion.Domain.Entity;
 using BCP.Optimizacion.Infraestructure;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -32,14 +33,14 @@ namespace BCP.Optimizacion.Presentation.Rest.Controllers
         }
         // GET: Sale
         [HttpGet]
-        public async Task<HttpResponseMessage> Index()
+        public async Task<List<ResponseUsers>> Index()
         {
-            var objListaUsuarios = await _servicioUser.ObtenerUsuarios();
-            var objEntidadDataStatus = _serviceBaseAplication.EvaluarTipoRetornoStatus<ResponseUsersDto,
+            var objListaUsuarios = await _servicioUser.ObtenerAsesores();
+            /*var objEntidadDataStatus = _serviceBaseAplication.EvaluarTipoRetornoStatus<ResponseUsersDto,
                                         ResponseUsers>(objListaUsuarios);
-            var responseResultado = _serviceBaseAplication.ObtenerResponseRequest(objEntidadDataStatus);
+            var responseResultado = _serviceBaseAplication.ObtenerResponseRequest(objEntidadDataStatus);*/
 
-            return responseResultado;
+            return objListaUsuarios;
         }
 
         // GET: Sale
@@ -47,24 +48,20 @@ namespace BCP.Optimizacion.Presentation.Rest.Controllers
         [Route("goal")]
         public async Task<HttpResponseMessage> ObtenerConsolidadoMetas()
         {
-            var objListaUsuarios = await _servicioUser.ObtenerUsuarios();
-            var objEntidadDataStatus = _serviceBaseAplication.EvaluarTipoRetornoStatus<ResponseUsersDto,
-                                        ResponseUsers>(objListaUsuarios);
-            var responseResultado = _serviceBaseAplication.ObtenerResponseRequest(objEntidadDataStatus);
+            var objResponseRequest = new HttpResponseMessage();
 
-            return responseResultado;
+            objResponseRequest.StatusCode = HttpStatusCode.OK;
+            return objResponseRequest;
         }
 
         // GET: Sale/Create
         [HttpPost]
         public async Task<HttpResponseMessage> Create()
         {
-            var objListaUsuarios = await _servicioUser.ObtenerUsuarios();
-            var objEntidadDataStatus = _serviceBaseAplication.EvaluarTipoRetornoStatus<ResponseUsersDto,
-                                        ResponseUsers>(objListaUsuarios);
-            var responseResultado = _serviceBaseAplication.ObtenerResponseRequest(objEntidadDataStatus);
+            var objResponseRequest = new HttpResponseMessage();
 
-            return responseResultado;
+            objResponseRequest.StatusCode = HttpStatusCode.OK;
+            return objResponseRequest;
         }
 
 
@@ -73,12 +70,10 @@ namespace BCP.Optimizacion.Presentation.Rest.Controllers
         [HttpPut]
         public async Task<HttpResponseMessage> Edit(int IdSale)
         {
-            var objListaUsuarios = await _servicioUser.ObtenerUsuarios();
-            var objEntidadDataStatus = _serviceBaseAplication.EvaluarTipoRetornoStatus<ResponseUsersDto,
-                                        ResponseUsers>(objListaUsuarios);
-            var responseResultado = _serviceBaseAplication.ObtenerResponseRequest(objEntidadDataStatus);
+            var objResponseRequest = new HttpResponseMessage();
 
-            return responseResultado;
+            objResponseRequest.StatusCode = HttpStatusCode.OK;
+            return objResponseRequest;
         }
 
 
@@ -86,12 +81,10 @@ namespace BCP.Optimizacion.Presentation.Rest.Controllers
         [HttpDelete]
         public async Task<HttpResponseMessage> Delete(int IdSale)
         {
-            var objListaUsuarios = await _servicioUser.ObtenerUsuarios();
-            var objEntidadDataStatus = _serviceBaseAplication.EvaluarTipoRetornoStatus<ResponseUsersDto,
-                                        ResponseUsers>(objListaUsuarios);
-            var responseResultado = _serviceBaseAplication.ObtenerResponseRequest(objEntidadDataStatus);
+            var objResponseRequest = new HttpResponseMessage();
 
-            return responseResultado;
+            objResponseRequest.StatusCode = HttpStatusCode.OK;
+            return objResponseRequest;
         }
     }
 }

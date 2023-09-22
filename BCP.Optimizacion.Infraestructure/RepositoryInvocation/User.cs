@@ -16,7 +16,7 @@ namespace BCP.Optimizacion.Infraestructure
             _utilitarios = utilitarios;
         }
 
-        public async Task<HttpResponseMessage> ObtenerUsuarios()
+        public async Task<HttpResponseMessage> ObtenerAsesores()
         {
             HttpResponseMessage respuestaRequest;
 
@@ -27,6 +27,17 @@ namespace BCP.Optimizacion.Infraestructure
             return respuestaRequest;
         }
 
+
+        public async Task<HttpResponseMessage> ObtenerUsuarios()
+        {
+            HttpResponseMessage respuestaRequest;
+
+            var uriBase = _utilitarios.RetornarUriBaseApiInclusionMasiva();
+            var uri = uriBase + ConstantsOptimizacion.users;
+            respuestaRequest = await _commonInvocations.GetRecurso(uri);
+
+            return respuestaRequest;
+        }
         public async Task<HttpResponseMessage> ObtenerUsuariosRangeDate(string userId)
         {
             HttpResponseMessage respuestaRequest;

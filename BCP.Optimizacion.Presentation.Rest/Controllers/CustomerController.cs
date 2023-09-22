@@ -41,12 +41,10 @@ namespace BCP.Optimizacion.Presentation.Rest.Controllers
         [HttpGet]
         public async Task<HttpResponseMessage> ObtenerUsuarios()
         {
-            var objListaUsuarios = await _servicioUser.ObtenerUsuarios();
-            var objEntidadDataStatus = _serviceBaseAplication.EvaluarTipoRetornoStatus<ResponseUsersDto,
-                                        ResponseUsers>(objListaUsuarios);
-            var responseResultado = _serviceBaseAplication.ObtenerResponseRequest(objEntidadDataStatus);
+            var objResponseRequest = new HttpResponseMessage();
 
-            return responseResultado;
+            objResponseRequest.StatusCode = HttpStatusCode.OK;
+            return objResponseRequest;
         }
 
         /// <summary>
@@ -55,12 +53,10 @@ namespace BCP.Optimizacion.Presentation.Rest.Controllers
         [HttpPost]
         public async Task<HttpResponseMessage> CrearUsuario()
         {
-            var objListaUsuarios = await _servicioUser.ObtenerUsuarios();
-            var objEntidadDataStatus = _serviceBaseAplication.EvaluarTipoRetornoStatus<ResponseUsersDto,
-                                        ResponseUsers>(objListaUsuarios);
-            var responseResultado = _serviceBaseAplication.ObtenerResponseRequest(objEntidadDataStatus);
+            var objResponseRequest = new HttpResponseMessage();
 
-            return responseResultado;
+            objResponseRequest.StatusCode = HttpStatusCode.OK;
+            return objResponseRequest;
         }
     }
 }

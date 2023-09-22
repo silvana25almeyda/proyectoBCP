@@ -2,7 +2,10 @@
 using BCP.Optimizacion.Domain.Contract;
 using BCP.Optimizacion.Domain.Entity;
 using BCP.Optimizacion.Infraestructure;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 
@@ -20,6 +23,37 @@ namespace BCP.Optimizacion.Application.Implementation
             _baseDomain = baseDomain;
             _log = log;
         }
+
+        public async Task<List<ResponseUsers>> ObtenerAsesores()
+        {
+            var objListaParametros = new List<ResponseUsers>();
+
+            try
+            {
+                var respuestaRequest =  await _user.ObtenerAsesores();
+                //objListaParametros = await _baseDomain.EvaluarRespuestaRequest<ResponseUsers>(respuestaRequest);
+                var contenidoRespuesta =  await respuestaRequest.Content.ReadAsStringAsync();
+                var array = JArray.Parse(contenidoRespuesta);
+                foreach (var item in array)
+                {
+                    try
+                    {
+                        objListaParametros.Add(item.ToObject<ResponseUsers>());
+                    }
+                    catch (Exception ex)
+                    {
+                        _log.Error(ex.Message, ex);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                _log.Error(ex.Message, ex);
+            }
+
+            return objListaParametros;
+        }
+
 
         public async Task<GenericResponse<ResponseUsers>> ObtenerUsuarios()
         {
