@@ -1,5 +1,4 @@
 ﻿using BCP.Optimizacion.Domain.Entity;
-using BCP.Optimizacion.Domain.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +9,6 @@ namespace BCP.Optimizacion.Application.Contract
 {
     public interface IServiceSale
     {
-        Task<GenericResponse<SaleResponse>> crearVenta(SaleRequest saleRequest);
+        SaleResponse crearVenta(SaleRequest saleRequest);
     }
 }

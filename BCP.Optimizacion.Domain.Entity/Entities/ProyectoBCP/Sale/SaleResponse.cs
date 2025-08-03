@@ -8,5 +8,7 @@ namespace BCP.Optimizacion.Domain.Entity
 {
     public class SaleResponse
     {
+        public int codigoResponse { get; set; }
+        public string message { get; set; }
     }
 }

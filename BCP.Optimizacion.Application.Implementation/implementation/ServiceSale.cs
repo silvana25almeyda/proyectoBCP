@@ -20,20 +20,18 @@ namespace BCP.Optimizacion.Application.Implementation
             _log = log;
         }
 
-        public async Task<GenericResponse<SaleResponse>> crearVenta(SaleRequest saleRequest)
+        public  SaleResponse crearVenta(SaleRequest saleRequest)
         {
-            var objListaParametros = new GenericResponse<SaleResponse>();
+            var objListaParametros = new SaleResponse();
 
             try
             {
-                var respuestaRequest = await _sale.crearVenta(saleRequest);
-                objListaParametros = await _baseDomain.
-                        EvaluarRespuestaRequest<SaleResponse>(respuestaRequest);
+                objListaParametros = _sale.crearVenta(saleRequest);
             }
             catch (Exception ex)
             {
                 objListaParametros.message = ex.Message;
-                objListaParametros.codigoResponse = HttpStatusCode.InternalServerError;
+                objListaParametros.codigoResponse = Convert.ToInt32(HttpStatusCode.InternalServerError);
                 _log.Error(ex.Message, ex);
             }
 
