@@ -35,6 +35,36 @@ namespace BCP.Optimizacion.Presentation.Rest.Controllers
         [HttpGet]
         public async Task<List<ResponseUsers>> Index()
         {
+            int[] objLista = { 1, 24, 8, 13, 6, 15, 8, 15, 20 };
+            int[] objListaFinal = new int[10];
+            int auxiliar, x;
+
+            for (int i = 0; i < 8; i++)
+            {
+                auxiliar = objLista[i];
+                x = i;
+
+                for (int j = i + 1; j < 9; j++)
+                {
+                    if (objLista[j] < auxiliar)
+                    {
+                        auxiliar = objLista[j];
+                        x = j;
+                    }
+                }
+                objLista[x] = objLista[i];
+                objLista[i] = auxiliar;
+            }
+
+            int y = 0;
+            for (int i = 0; i < 9; i++)
+            {
+                if (objLista[i] % 2 == 0)
+                {
+                    objListaFinal[y] = objLista[i];
+                    y++;
+                }
+            }
             var objListaUsuarios = await _servicioUser.ObtenerAsesores();
             /*var objEntidadDataStatus = _serviceBaseAplication.EvaluarTipoRetornoStatus<ResponseUsersDto,
                                         ResponseUsers>(objListaUsuarios);
